@@ -1,4 +1,4 @@
-package openfire.chat.service;
+package aOpenFireService;
 
 public class ServiceException extends Exception{
 

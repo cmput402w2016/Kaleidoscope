@@ -1,10 +1,7 @@
-package openfire.chat.service;
+package aOpenFireService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import openfire.chat.activity.LoginActivity;
-import openfire.chat.activity.RegisterActivity;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.PacketCollector;
@@ -20,6 +17,8 @@ import org.jivesoftware.smack.packet.Registration;
 
 import android.text.TextUtils;
 import android.util.Log;
+import cActivity.LoginActivity;
+import cActivity.RegisterActivity;
 
 public class UserServiceImpl implements UserService {
 

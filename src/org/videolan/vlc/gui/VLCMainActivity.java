@@ -83,14 +83,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import bVideoStreaming.MultiRoom;
+import bVideoStreaming.VideoStreamingFragment;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import easydarwin.android.videostreaming.MultiRoom;
-import easydarwin.android.videostreaming.VideoStreamingFragment;
 
 public class VLCMainActivity extends ActionBarActivity {
     public final static String TAG = "VLC/MainActivity";

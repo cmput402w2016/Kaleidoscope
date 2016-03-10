@@ -1,4 +1,4 @@
-package openfire.chat.service;
+package aOpenFireService;
 
 import org.jivesoftware.smack.XMPPConnection;
 

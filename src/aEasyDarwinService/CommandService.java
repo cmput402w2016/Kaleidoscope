@@ -1,4 +1,4 @@
-package org.easydarwin.android.camera;
+package aEasyDarwinService;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -19,10 +19,9 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.log4j.Logger;
 
 import android.app.Service;
 import android.content.Intent;
@@ -192,8 +191,8 @@ public class CommandService extends Service {
 			Socket cSocket = null;
 			try {
 				SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(CommandService.this);
-				String ip = pref.getString("key_server_address", "www.easydarwin.org");
-				String port = pref.getString("key_server_port", "554");
+				String ip = pref.getString("key_server_address", "129.128.184.46");
+				String port = pref.getString("key_server_port", "8554");
 				String id = pref.getString("key_device_id", Build.MODEL);
 
 				InetAddress inetAddress = InetAddress.getByName(ip);
@@ -350,7 +349,7 @@ public class CommandService extends Service {
 	public String mUri;
 	private String mKeepalive;
 	/**
-	 * 上一次写时间
+	 * Last Write Time
 	 */
 	private long mLastWriteTime;
 
@@ -410,8 +409,8 @@ public class CommandService extends Service {
 //				final String ip = pref.getString(EasyCameraApp.KEY_SERVER_ADDRESS, "www.easydarwin.org");
 //				String port = pref.getString(EasyCameraApp.KEY_SERVER_PORT, "554");
 //				String id = pref.getString(EasyCameraApp.KEY_DEVICE_ID, Build.MODEL);
-				final String ip = pref.getString("key_server_address", "www.easydarwin.org");
-				String port = pref.getString("key_server_port", "554");
+				final String ip = pref.getString("key_server_address", "129.128.184.46");
+				String port = pref.getString("key_server_port", "8554");
 				String id = pref.getString("key_device_id", Build.MODEL);
 				
 				final InetAddress[] inetAddress = new InetAddress[1];

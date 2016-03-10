@@ -1,4 +1,4 @@
-package easydarwin.android.videostreaming;
+package bVideoStreaming;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

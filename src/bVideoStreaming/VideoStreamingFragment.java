@@ -1,4 +1,4 @@
-package easydarwin.android.videostreaming;
+package bVideoStreaming;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,8 +18,6 @@ import net.majorkernelpanic.streaming.gl.SurfaceView;
 import net.majorkernelpanic.streaming.rtp.RtpThread;
 import net.majorkernelpanic.streaming.rtsp.RtspClient;
 import net.majorkernelpanic.streaming.video.VideoQuality;
-import openfire.chat.activity.LoginActivity;
-import openfire.chat.adapter.FriendsAdapter;
 
 import org.jivesoftware.smack.Connection;
 import org.jivesoftware.smack.PacketListener;
@@ -61,6 +59,8 @@ import org.videolan.vlc.R;
 import org.videolan.vlc.VLCCallbackTask;
 import org.videolan.vlc.audio.AudioServiceController;
 
+import aEasyDarwinService.EasyCameraApp;
+import aEasyDarwinService.SettingsActivity;
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -107,9 +107,9 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import cActivity.LoginActivity;
+import dAdapter.FriendsAdapter;
 import android.widget.Toast;
-import easydarwin.android.service.EasyCameraApp;
-import easydarwin.android.service.SettingsActivity;
 
 @SuppressLint("ClickableViewAccessibility")
 public class VideoStreamingFragment extends Fragment implements Callback,

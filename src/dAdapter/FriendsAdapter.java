@@ -1,4 +1,4 @@
-package openfire.chat.adapter;
+package dAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

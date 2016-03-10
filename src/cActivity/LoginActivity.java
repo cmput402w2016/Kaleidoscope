@@ -1,17 +1,16 @@
-package openfire.chat.activity;
+package cActivity;
 
 
 import java.lang.ref.WeakReference;
-
-import openfire.chat.service.ServiceException;
-import openfire.chat.service.UserService;
-import openfire.chat.service.UserServiceImpl;
 
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.packet.Presence;
 import org.videolan.vlc.R;
 import org.videolan.vlc.gui.VLCMainActivity;
 
+import aOpenFireService.ServiceException;
+import aOpenFireService.UserService;
+import aOpenFireService.UserServiceImpl;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;

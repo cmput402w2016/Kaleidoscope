@@ -1,4 +1,4 @@
-package easydarwin.android.videostreaming;
+package bVideoStreaming;
 
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.XMPPConnection;

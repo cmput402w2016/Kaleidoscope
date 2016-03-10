@@ -30,7 +30,6 @@ import org.videolan.vlc.VLCApplication;
 import org.videolan.vlc.gui.audio.AudioBrowserFragment;
 import org.videolan.vlc.gui.video.VideoGridFragment;
 
-import easydarwin.android.videostreaming.VideoStreamingFragment;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
@@ -40,6 +39,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import bVideoStreaming.VideoStreamingFragment;
 
 public class SidebarAdapter extends BaseAdapter {
     public final static String TAG = "VLC/SidebarAdapter";

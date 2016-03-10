@@ -39,8 +39,6 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Map;
 
-import openfire.chat.service.UserServiceImpl;
-
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.XMPPConnection;
@@ -67,6 +65,7 @@ import org.videolan.vlc.util.AndroidDevices;
 import org.videolan.vlc.util.VLCInstance;
 import org.videolan.vlc.util.WeakHandler;
 
+import aOpenFireService.UserServiceImpl;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -124,9 +123,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import bVideoStreaming.MultiRoom;
+import bVideoStreaming.VideoStreamingFragment;
 import android.widget.Toast;
-import easydarwin.android.videostreaming.MultiRoom;
-import easydarwin.android.videostreaming.VideoStreamingFragment;
 
 @SuppressLint("ClickableViewAccessibility")
 public class VideoPlayerActivity extends Activity implements IVideoPlayer {

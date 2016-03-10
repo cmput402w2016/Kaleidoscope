@@ -1,8 +1,12 @@
-package org.easydarwin.android.camera;
+package aEasyDarwinService;
 
 import java.util.List;
+
+import org.videolan.vlc.R;
+
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.media.Ringtone;
@@ -10,7 +14,6 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -43,7 +46,7 @@ public class SettingsActivity extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setupActionBar();
+//		setupActionBar();
 	}
 
 	/**
@@ -100,15 +103,33 @@ public class SettingsActivity extends PreferenceActivity {
 		// Add 'general' preferences.
 		addPreferencesFromResource(R.xml.pref_general);
 
+		final SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(this);
+//		final ListPreference videoResolution = (ListPreference) findPreference("video_resolution");
 		bindPreferenceSummaryToValue(findPreference("key_device_id"));
 		bindPreferenceSummaryToValue(findPreference("key_server_address"));
 		bindPreferenceSummaryToValue(findPreference("key_server_port"));
-		bindPreferenceSummaryToValue(findPreference("frame_rate"));
-		bindPreferenceSummaryToValue(findPreference("key_transport_list"));
-		bindPreferenceSummaryToValue(findPreference("bit_rate"));
+		bindPreferenceSummaryToValue(findPreference("video_framerate"));
+		bindPreferenceSummaryToValue(findPreference("video_camera"));
+		bindPreferenceSummaryToValue(findPreference("video_bitrate"));
 		bindPreferenceSummaryToValue(findPreference("video_resolution"));
+		bindPreferenceSummaryToValue(findPreference("key_transport_list"));
 
-
+		
+//		videoResolution.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+//			public boolean onPreferenceChange(Preference preference, Object newValue) {
+//				Editor editor = settings.edit();
+//				Pattern pattern = Pattern.compile("([0-9]+)x([0-9]+)");
+//				Matcher matcher = pattern.matcher((String)newValue);
+//				matcher.find();
+//				editor.putInt("video_resX", Integer.parseInt(matcher.group(1)));
+//				editor.putInt("video_resY", Integer.parseInt(matcher.group(2)));
+//				editor.commit();
+//				videoResolution.setSummary(getString(R.string.settings11)+" "+(String)newValue+"px");
+//				return true;
+//			}
+//		});
+		
 		try {
 			findPreference("key_about").setTitle("Version：" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
 		} catch (NameNotFoundException e) {
@@ -197,19 +218,21 @@ public class SettingsActivity extends PreferenceActivity {
 				preference.setSummary(stringValue);
 			}
 
-			if (preference.getKey().equals("frame_rate")) {
-				int fr = Integer.parseInt(stringValue);
-				if (fr > 30) {
-					fr = 30;
-				} else if (fr < 5) {
-					fr = 5;
-				}
-				EditTextPreference ep = (EditTextPreference) preference;
-				ep.setText("" + fr);
-				preference.setSummary("" + fr);
-				PreferenceManager.getDefaultSharedPreferences(preference.getContext()).edit().putString("frame_rate", "" + fr).commit();
-				return false;
-			}
+//			if (preference.getKey().equals("video_framerate")) {
+//				int fr = Integer.parseInt(stringValue);
+////				if (fr > 30) {
+////					fr = 30;
+////				} else if (20 <= fr &&fr < 30) {
+////					fr = 20;
+////				}else if (fr < 20) {
+////					fr = 15;
+////				}
+////				EditTextPreference ep = (EditTextPreference) preference;
+////				ep.setText("" + fr);
+//				preference.setSummary("" + fr);
+//				PreferenceManager.getDefaultSharedPreferences(preference.getContext()).edit().putString("frame_rate", "" + fr).commit();
+//				return false;
+//			}
 			return true;
 		}
 	};
@@ -251,8 +274,8 @@ public class SettingsActivity extends PreferenceActivity {
 			// to their values. When their values change, their summaries are
 			// updated to reflect the new value, per the Android Design
 			// guidelines.
-			bindPreferenceSummaryToValue(findPreference("example_text"));
-			bindPreferenceSummaryToValue(findPreference("example_list"));
+//			bindPreferenceSummaryToValue(findPreference("example_text"));
+//			bindPreferenceSummaryToValue(findPreference("example_list"));
 		}
 	}
 
