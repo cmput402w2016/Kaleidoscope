@@ -25,6 +25,15 @@
             android:summary="@string/settings32"
             android:title="@string/settings31" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="Notification Radius" >
+        <EditTextPreference
+            android:defaultValue="10"
+            android:key="key_radius"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Radius (km)" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings3" >
         <CheckBoxPreference
             android:defaultValue="true"
