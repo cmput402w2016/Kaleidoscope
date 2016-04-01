@@ -12,6 +12,13 @@
         android:layout_alignParentTop="true"
         android:background="@color/grey2"
         android:orientation="vertical" >
+        
+        <Button
+            android:id="@+id/btn_report_incident"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/title"
+            android:text="report" />
 
         <Button
             android:id="@+id/btnOptions"

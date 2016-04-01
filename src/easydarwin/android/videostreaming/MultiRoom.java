@@ -427,9 +427,9 @@ public class MultiRoom {
 			 *  -D 3 -B 10000000 -b 10000000 -4 -w 640 -h 480 -f 24 -Q -d 60 -P 300
 			 */
 			String parameter = "./openRTSP -D 3 -B 10000000 -b 10000000 -4 -w 640 -h 480 -f 24 -Q -d 60 -P 300 -F "+room;
-			String url = " rtsp://129.128.184.46:8554/"+room+".sdp";
+			String url = " rtsp://104.236.99.214:554/"+room+".sdp";
 			streamInfo.put("parameter", parameter);
-			streamInfo.put("streamUrl", "rtsp://129.128.184.46:8554/"+room+".sdp");
+			streamInfo.put("streamUrl", "rtsp://104.236.99.214:554/"+room+".sdp");
 			
 			streamInfo.put("play", parameter + url);
 			

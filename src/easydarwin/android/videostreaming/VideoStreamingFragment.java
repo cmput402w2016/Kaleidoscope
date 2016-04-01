@@ -62,8 +62,10 @@ import org.videolan.vlc.VLCCallbackTask;
 import org.videolan.vlc.audio.AudioServiceController;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -83,6 +85,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
@@ -109,6 +112,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 import easydarwin.android.service.EasyCameraApp;
+import easydarwin.android.service.ReportIncidentDialogFragment;
 import easydarwin.android.service.SettingsActivity;
 
 @SuppressLint("ClickableViewAccessibility")
@@ -358,6 +362,12 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			mRoom.SendMessage(connection, room, textMessage.getText()
 					.toString());
 			textMessage.setText("");
+			break;
+		
+		case R.id.btn_report_incident:
+			// pop up dialogue asking for the type and severity of incident
+			DialogFragment reportIncidentDialog = new ReportIncidentDialogFragment();
+			reportIncidentDialog.show(getFragmentManager(), "incidents");
 			break;
 		}
 	}

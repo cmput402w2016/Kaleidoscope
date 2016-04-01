@@ -6,7 +6,7 @@
     android:versionName="kaleidoscope-v0.9" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="8"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
