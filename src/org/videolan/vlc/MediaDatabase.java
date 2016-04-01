@@ -225,19 +225,28 @@ public class MediaDatabase {
      */
     public String[] getPlaylists() {
         ArrayList<String> playlists = new ArrayList<String>();
-        Cursor cursor;
-
-        cursor = mDb.query(
-                PLAYLIST_TABLE_NAME,
-                new String[] { PLAYLIST_NAME },
-                null, null, null, null, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                playlists.add(cursor.getString(10));
-            } while (cursor.moveToNext());
+        Cursor cursor = null;
+        try
+        {
+        	cursor = mDb.query(
+                    PLAYLIST_TABLE_NAME,
+                    new String[] { PLAYLIST_NAME },
+                    null, null, null, null, null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()) {
+                do {
+                    playlists.add(cursor.getString(10));
+                } while (cursor.moveToNext());
+            }
         }
-        cursor.close();
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }
+        
         return playlists.toArray(new String[playlists.size()]);
     }
 
@@ -325,120 +334,150 @@ public class MediaDatabase {
     private synchronized HashSet<File> getMediaFiles() {
 
         HashSet<File> files = new HashSet<File>();
-        Cursor cursor;
+        
+        Cursor cursor = null;
 
-        cursor = mDb.query(
-                MEDIA_TABLE_NAME,
-                new String[] { MEDIA_LOCATION },
-                null, null, null, null, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                File file = new File(cursor.getString(0));
-                files.add(file);
-            } while (cursor.moveToNext());
+        try
+        {
+	        cursor = mDb.query(
+	                MEDIA_TABLE_NAME,
+	                new String[] { MEDIA_LOCATION },
+	                null, null, null, null, null);
+	        cursor.moveToFirst();
+	        if (!cursor.isAfterLast()) {
+	            do {
+	                File file = new File(cursor.getString(0));
+	                files.add(file);
+	            } while (cursor.moveToNext());
         }
-        cursor.close();
+        }
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }
 
         return files;
     }
 
     public synchronized HashMap<String, Media> getMedias() {
 
-        Cursor cursor;
+        Cursor cursor = null;
         HashMap<String, Media> medias = new HashMap<String, Media>();
         int chunk_count = 0;
         int count = 0;
 
-        do {
-            count = 0;
-            cursor = mDb.rawQuery(String.format(Locale.US,
-                    "SELECT %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s FROM %s LIMIT %d OFFSET %d",
-                    MEDIA_TIME, //0 long
-                    MEDIA_LENGTH, //1 long
-                    MEDIA_TYPE, //2 int
-                    MEDIA_TITLE, //3 string
-                    MEDIA_ARTIST, //4 string
-                    MEDIA_GENRE, //5 string
-                    MEDIA_ALBUM, //6 string
-                    MEDIA_WIDTH, //7 int
-                    MEDIA_HEIGHT, //8 int
-                    MEDIA_ARTWORKURL, //9 string
-                    MEDIA_AUDIOTRACK, //10 string
-                    MEDIA_SPUTRACK, //11 string
-                    MEDIA_LOCATION, //12 string
-                    MEDIA_TABLE_NAME,
-                    CHUNK_SIZE,
-                    chunk_count * CHUNK_SIZE), null);
-
-            if (cursor.moveToFirst()) {
-                do {
-                    String location = cursor.getString(12);
-                    Media media = new Media(location,
-                            cursor.getLong(0),      // MEDIA_TIME
-                            cursor.getLong(1),      // MEDIA_LENGTH
-                            cursor.getInt(2),       // MEDIA_TYPE
-                            null,                   // MEDIA_PICTURE
-                            cursor.getString(3),    // MEDIA_TITLE
-                            cursor.getString(4),    // MEDIA_ARTIST
-                            cursor.getString(5),    // MEDIA_GENRE
-                            cursor.getString(6),    // MEDIA_ALBUM
-                            cursor.getInt(7),       // MEDIA_WIDTH
-                            cursor.getInt(8),       // MEDIA_HEIGHT
-                            cursor.getString(9),    // MEDIA_ARTWORKURL
-                            cursor.getInt(10),      // MEDIA_AUDIOTRACK
-                            cursor.getInt(11));     // MEDIA_SPUTRACK
-                    medias.put(media.getLocation(), media);
-
-                    count++;
-                } while (cursor.moveToNext());
-            }
-
-            cursor.close();
-            chunk_count++;
-        } while (count == CHUNK_SIZE);
+        try
+        {
+	        do {
+	            count = 0;
+	            cursor = mDb.rawQuery(String.format(Locale.US,
+	                    "SELECT %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s FROM %s LIMIT %d OFFSET %d",
+	                    MEDIA_TIME, //0 long
+	                    MEDIA_LENGTH, //1 long
+	                    MEDIA_TYPE, //2 int
+	                    MEDIA_TITLE, //3 string
+	                    MEDIA_ARTIST, //4 string
+	                    MEDIA_GENRE, //5 string
+	                    MEDIA_ALBUM, //6 string
+	                    MEDIA_WIDTH, //7 int
+	                    MEDIA_HEIGHT, //8 int
+	                    MEDIA_ARTWORKURL, //9 string
+	                    MEDIA_AUDIOTRACK, //10 string
+	                    MEDIA_SPUTRACK, //11 string
+	                    MEDIA_LOCATION, //12 string
+	                    MEDIA_TABLE_NAME,
+	                    CHUNK_SIZE,
+	                    chunk_count * CHUNK_SIZE), null);
+	
+	            if (cursor.moveToFirst()) {
+	                do {
+	                    String location = cursor.getString(12);
+	                    Media media = new Media(location,
+	                            cursor.getLong(0),      // MEDIA_TIME
+	                            cursor.getLong(1),      // MEDIA_LENGTH
+	                            cursor.getInt(2),       // MEDIA_TYPE
+	                            null,                   // MEDIA_PICTURE
+	                            cursor.getString(3),    // MEDIA_TITLE
+	                            cursor.getString(4),    // MEDIA_ARTIST
+	                            cursor.getString(5),    // MEDIA_GENRE
+	                            cursor.getString(6),    // MEDIA_ALBUM
+	                            cursor.getInt(7),       // MEDIA_WIDTH
+	                            cursor.getInt(8),       // MEDIA_HEIGHT
+	                            cursor.getString(9),    // MEDIA_ARTWORKURL
+	                            cursor.getInt(10),      // MEDIA_AUDIOTRACK
+	                            cursor.getInt(11));     // MEDIA_SPUTRACK
+	                    medias.put(media.getLocation(), media);
+	
+	                    count++;
+	                } while (cursor.moveToNext());
+	            }
+	
+	            cursor.close();
+	            chunk_count++;
+	        } while (count == CHUNK_SIZE);
+        }
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }
 
         return medias;
     }
 
     public synchronized HashMap<String, Long> getVideoTimes(Context context) {
 
-        Cursor cursor;
+        Cursor cursor = null;
         HashMap<String, Long> times = new HashMap<String, Long>();
         int chunk_count = 0;
         int count = 0;
 
-        do {
-            count = 0;
-            cursor = mDb.rawQuery(String.format(Locale.US,
-                    "SELECT %s,%s FROM %s WHERE %s=%d LIMIT %d OFFSET %d",
-                    MEDIA_LOCATION, //0 string
-                    MEDIA_TIME, //1 long
-                    MEDIA_TABLE_NAME,
-                    MEDIA_TYPE,
-                    Media.TYPE_VIDEO,
-                    CHUNK_SIZE,
-                    chunk_count * CHUNK_SIZE), null);
-
-            if (cursor.moveToFirst()) {
-                do {
-                    String location = cursor.getString(0);
-                    long time = cursor.getLong(1);
-                    times.put(location, time);
-                    count++;
-                } while (cursor.moveToNext());
-            }
-
-            cursor.close();
-            chunk_count++;
-        } while (count == CHUNK_SIZE);
-
+        try
+        {
+	        do {
+	            count = 0;
+	            cursor = mDb.rawQuery(String.format(Locale.US,
+	                    "SELECT %s,%s FROM %s WHERE %s=%d LIMIT %d OFFSET %d",
+	                    MEDIA_LOCATION, //0 string
+	                    MEDIA_TIME, //1 long
+	                    MEDIA_TABLE_NAME,
+	                    MEDIA_TYPE,
+	                    Media.TYPE_VIDEO,
+	                    CHUNK_SIZE,
+	                    chunk_count * CHUNK_SIZE), null);
+	
+	            if (cursor.moveToFirst()) {
+	                do {
+	                    String location = cursor.getString(0);
+	                    long time = cursor.getLong(1);
+	                    times.put(location, time);
+	                    count++;
+	                } while (cursor.moveToNext());
+	            }
+	        
+	            
+	            chunk_count++;
+	        } while (count == CHUNK_SIZE);
+        }
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }
+        
         return times;
     }
 
     public synchronized Media getMedia(String location) {
 
-        Cursor cursor;
+        Cursor cursor = null;
         Media media = null;
 
         try {
@@ -465,23 +504,30 @@ public class MediaDatabase {
             // java.lang.IllegalArgumentException: the bind value at index 1 is null
             return null;
         }
-        if (cursor.moveToFirst()) {
-            media = new Media(location,
-                    cursor.getLong(0),
-                    cursor.getLong(1),
-                    cursor.getInt(2),
-                    null, // lazy loading, see getPicture()
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
-                    cursor.getString(9),
-                    cursor.getInt(10),
-                    cursor.getInt(11));
+        finally
+        {
+	        if (cursor.moveToFirst()) {
+	            media = new Media(location,
+	                    cursor.getLong(0),
+	                    cursor.getLong(1),
+	                    cursor.getInt(2),
+	                    null, // lazy loading, see getPicture()
+	                    cursor.getString(3),
+	                    cursor.getString(4),
+	                    cursor.getString(5),
+	                    cursor.getString(6),
+	                    cursor.getInt(7),
+	                    cursor.getInt(8),
+	                    cursor.getString(9),
+	                    cursor.getInt(10),
+	                    cursor.getInt(11));
+	        }
+	        if (cursor != null)
+	        {   
+	        	cursor.close();
+	        }
         }
-        cursor.close();
+        
         return media;
     }
 
@@ -598,32 +644,54 @@ public class MediaDatabase {
     public synchronized List<File> getMediaDirs() {
 
         List<File> paths = new ArrayList<File>();
-        Cursor cursor;
+        Cursor cursor = null;
 
-        cursor = mDb.query(
-                DIR_TABLE_NAME,
-                new String[] { DIR_ROW_PATH },
-                null, null, null, null, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                File dir = new File(cursor.getString(0));
-                paths.add(dir);
-            } while (cursor.moveToNext());
+        try
+        {
+	        cursor = mDb.query(
+	                DIR_TABLE_NAME,
+	                new String[] { DIR_ROW_PATH },
+	                null, null, null, null, null);
+	        cursor.moveToFirst();
+	        if (!cursor.isAfterLast()) {
+	            do {
+	                File dir = new File(cursor.getString(0));
+	                paths.add(dir);
+	            } while (cursor.moveToNext());
+	        }
         }
-        cursor.close();
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }        
 
         return paths;
     }
 
     private synchronized boolean mediaDirExists(String path) {
-        Cursor cursor = mDb.query(DIR_TABLE_NAME,
-                new String[] { DIR_ROW_PATH },
-                DIR_ROW_PATH + "=?",
-                new String[] { path },
-                null, null, null);
-        boolean exists = cursor.moveToFirst();
-        cursor.close();
+    	Cursor cursor = null;
+    	boolean exists = false;
+    	
+    	try
+    	{
+	        cursor = mDb.query(DIR_TABLE_NAME,
+	                new String[] { DIR_ROW_PATH },
+	                DIR_ROW_PATH + "=?",
+	                new String[] { path },
+	                null, null, null);
+	        exists = cursor.moveToFirst();
+    	}
+    	finally
+    	{
+    		if (cursor != null)
+    		{
+    			cursor.close();
+    		}
+    	}
+        
         return exists;
     }
 
@@ -645,17 +713,26 @@ public class MediaDatabase {
     public synchronized ArrayList<String> getSearchhistory(int size) {
         ArrayList<String> history = new ArrayList<String>();
 
-        Cursor cursor = mDb.query(SEARCHHISTORY_TABLE_NAME,
-                new String[] { SEARCHHISTORY_KEY },
-                null, null, null, null,
-                SEARCHHISTORY_DATE + " DESC",
-                Integer.toString(size));
-
-        while (cursor.moveToNext()) {
-            history.add(cursor.getString(0));
+        Cursor cursor = null;
+        try
+        {
+	        cursor = mDb.query(SEARCHHISTORY_TABLE_NAME,
+	                new String[] { SEARCHHISTORY_KEY },
+	                null, null, null, null,
+	                SEARCHHISTORY_DATE + " DESC",
+	                Integer.toString(size));
+	
+	        while (cursor.moveToNext()) {
+	            history.add(cursor.getString(0));
+	        }
         }
-        cursor.close();
-
+        finally
+        {
+        	if (cursor != null)
+        	{
+        		cursor.close();
+        	}
+        }
         return history;
     }
 

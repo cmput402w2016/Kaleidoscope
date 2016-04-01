@@ -313,6 +313,8 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 				paintView.setVisibility(View.VISIBLE);
 				// popup ContactList and select to send invitation
 				popupContactList(/* entries */);
+				String msg = "New stream available!";
+				mRoom.SendNotification(connection, room, msg);
 
 			} else {
 				// make paintView disappear

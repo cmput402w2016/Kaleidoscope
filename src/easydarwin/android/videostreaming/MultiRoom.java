@@ -42,6 +42,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+@SuppressWarnings("deprecation")
 public class MultiRoom {
 	
 	private final int PAINTVIEW = 2;
