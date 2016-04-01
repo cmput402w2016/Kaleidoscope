@@ -301,7 +301,7 @@ public abstract class MediaStream implements Stream {
 					mMediaCodec = null;
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			mStreaming = false;
 		}
@@ -357,17 +357,17 @@ public abstract class MediaStream implements Stream {
 		try {
 			mReceiver.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		try {
 			mSender.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		try {
 			mLss.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		mLss = null;
 		mSender = null;

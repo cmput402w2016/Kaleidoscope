@@ -39,7 +39,7 @@ public class Preferences {
                 for (int i = 0; i < array.length; i++)
                     array[i] = (float) json.getDouble(i);
             } catch (JSONException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             }
         }
         return array;
@@ -52,7 +52,7 @@ public class Preferences {
                 json.put(f);
             editor.putString("equalizer_values", json.toString());
         } catch (JSONException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 

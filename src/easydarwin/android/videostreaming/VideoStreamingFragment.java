@@ -186,7 +186,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 	}
@@ -317,6 +317,8 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 				paintView.setVisibility(View.VISIBLE);
 				// popup ContactList and select to send invitation
 				popupContactList(/* entries */);
+				String msg = "New stream available!";
+				mRoom.SendNotification(connection, room, msg);
 
 			} else {
 				// make paintView disappear
@@ -469,7 +471,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 
@@ -495,7 +497,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 							Log.i("INVITATION", "invite to join success!");
 							Log.i("VideoStreamingF", password);
 						} catch (XMPPException e) {
-							e.printStackTrace();
+							//e.printStackTrace();
 						}
 						final String inviterr = inviter;
 						// streaming link listener
@@ -558,7 +560,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 					msg.what = DISPLAY;
 					mHandler.sendMessage(msg);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			} while (alive);
 			if (!alive) {
@@ -704,7 +706,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 						try {
 							connection.connect();
 						} catch (XMPPException e) {
-							e.printStackTrace();
+							//e.printStackTrace();
 						}
 					}
 					try {
@@ -722,7 +724,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 //							Log.i("INVITEROOM", "success!");
 
 					} catch (XMPPException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				
@@ -747,7 +749,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		// Add a packet listener to get messages sent to us
@@ -849,7 +851,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 
@@ -903,7 +905,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 	}
@@ -1298,7 +1300,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 					}
 
 				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				} finally {
 					if (c != null) {
 						paintViewHolder.unlockCanvasAndPost(c);
@@ -1324,7 +1326,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 						"paintThread status::"+ paintThread.isAlive());
 				retry = false;
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 //		}
 	}

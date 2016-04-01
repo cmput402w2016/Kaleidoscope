@@ -113,5 +113,4 @@
         android:key="key_about"
         android:title="v1.4.0" >
     </Preference>
-
 </PreferenceScreen>

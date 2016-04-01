@@ -264,7 +264,7 @@ public class MediaLibrary {
                     try {
                         dirPath = dir.getCanonicalPath();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        // e.printStackTrace();
                     }
                     if (directoriesScanned.contains(dirPath))
                         continue;

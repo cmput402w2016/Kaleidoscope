@@ -34,3 +34,6 @@ More details on [WiKi document](https://github.com/EricCheung3/Kaleidoscope/wiki
 * Author: Hu Zhang, Diego Serrano, Eleni Stroulia
 * Email: hzhang3(@)ualberta(.)ca, serranos(@)ualberta(.)ca, stroulia(@)ualberta(.)ca
 * September 25, 2015
+=======
+# Team-3--Kaleidoscope   
+

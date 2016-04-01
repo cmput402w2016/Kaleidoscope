@@ -163,7 +163,7 @@ public class AboutFragment extends Fragment {
             packageInfo = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
             versionName = "v" + packageInfo.versionName;
         } catch (NameNotFoundException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
         }
         return versionName;
     }

@@ -122,5 +122,4 @@
                 android:text="send" />
         </RelativeLayout>
     </RelativeLayout>
-
 </LinearLayout>

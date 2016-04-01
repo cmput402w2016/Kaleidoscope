@@ -70,10 +70,10 @@ public class CompatErrorActivity extends Activity {
 
                 httpClient.execute(httpPost);
             } catch (ClientProtocolException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 return false;
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 return false;
             }
             Log.d(TAG, "Device model sent.");

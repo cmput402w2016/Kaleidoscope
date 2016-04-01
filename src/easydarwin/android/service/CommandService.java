@@ -245,10 +245,10 @@ public class CommandService extends Service {
 								os.write(request.getBytes());
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
-								e.printStackTrace();
+								//e.printStackTrace();
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
-								e.printStackTrace();
+								//e.printStackTrace();
 							}
 						}
 					}
@@ -294,27 +294,27 @@ public class CommandService extends Service {
 						// }
 					} catch (SocketException e) {
 						// Client has left
-						e.printStackTrace();
+						//e.printStackTrace();
 						break;
 					} catch (Exception e) {// Client has left
-						e.printStackTrace();
+						//e.printStackTrace();
 						break;
 					}
 				}
 
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} finally {
 				if (cSocket != null) {
 					try {
 						cSocket.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 					cSocket = null;
 				}
@@ -326,7 +326,7 @@ public class CommandService extends Service {
 						thread.join();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				EasyCameraApp.sState = EasyCameraApp.STATE_DISCONNECTED;
@@ -387,7 +387,7 @@ public class CommandService extends Service {
 				thread.join();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		super.onDestroy();
@@ -423,7 +423,7 @@ public class CommandService extends Service {
 							inetAddress[0] = InetAddress.getByName(ip);
 						} catch (UnknownHostException e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
+							//e.printStackTrace();
 						}
 					}
 
@@ -517,19 +517,19 @@ public class CommandService extends Service {
 
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} finally {
 				if (sc != null) {
 					try {
 						sc.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 					sc = null;
 				}
@@ -537,7 +537,7 @@ public class CommandService extends Service {
 					try {
 						selector.close();
 					} catch (IOException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				EasyCameraApp.sState = EasyCameraApp.STATE_DISCONNECTED;

@@ -42,6 +42,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+@SuppressWarnings("deprecation")
 public class MultiRoom {
 	
 	private final int PAINTVIEW = 2;
@@ -80,7 +81,8 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				// Slows down performance
+				//e.printStackTrace();
 			}
 		}
 		// Get the MultiUserChatManager
@@ -121,7 +123,8 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				// Slows down performance
+				//e.printStackTrace();
 			}
 		}
 		// Get the MultiUserChatManager
@@ -275,7 +278,7 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		// Add a packet listener to get messages sent to us
@@ -377,7 +380,7 @@ public class MultiRoom {
 						dataObject.put("coordinate", coordinate);
 						dataObject.put("annotation", tag);
 					} catch (JSONException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 					
 //					Log.i("DATA",dataObject.toString());
@@ -434,7 +437,7 @@ public class MultiRoom {
 			streamInfo.put("play", parameter + url);
 			
 		} catch (JSONException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 		new StreamAsyncTask().execute(streamInfo.toString());	
@@ -498,13 +501,13 @@ public class MultiRoom {
 //				}
 					
 			} catch (JSONException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (ClientProtocolException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (IOException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}	
 			
 		}
@@ -540,13 +543,13 @@ public class MultiRoom {
 				Log.i("Strore response", result);
 				
 			} catch (JSONException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (ClientProtocolException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (IOException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}	
 			
 		}
@@ -562,7 +565,7 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		if(room!=null){
@@ -578,7 +581,7 @@ public class MultiRoom {
 						Log.i("SEND-MSG-TO-ROOM", "Sending text " + textMessage + " to " + room+"=="+muc.getRoom());
 					}
 				} catch (XMPPException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				} 
 	
 //				textMessage.setText("");
@@ -607,7 +610,7 @@ public class MultiRoom {
 				muc.sendMessage(message);
 			Log.i("ROOM-NOTIFICATION", "Sending text " + content + " to " + muc.getRoom());
 		} catch (XMPPException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} 
 	
 	}
@@ -621,7 +624,7 @@ public class MultiRoom {
 				Log.i("STOP","stop connection");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		connection = null;
 	}
@@ -633,7 +636,7 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		 Presence presence = new Presence(Presence.Type.unavailable);
@@ -648,7 +651,7 @@ public class MultiRoom {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 	    MultiUserChat muc = new MultiUserChat(connection, room+"@"+serviceName); //Must write room- jid  
@@ -657,7 +660,7 @@ public class MultiRoom {
 			Log.i("LEAVE_ROOM",connection.getUser()+" Destroy the room");
 //			room = null;
 		} catch (XMPPException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return true;    
 	}

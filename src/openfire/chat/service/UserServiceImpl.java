@@ -148,7 +148,7 @@ public class UserServiceImpl implements UserService {
 			Log.i("GETCONNECTION","connect");
 			connection.connect();
 		} catch (XMPPException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		
 		return connection;

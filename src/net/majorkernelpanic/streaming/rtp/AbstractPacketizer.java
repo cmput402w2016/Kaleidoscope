@@ -183,10 +183,10 @@ abstract public class AbstractPacketizer {
 			fos.write(buffer, offset, length);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		} finally {
 			if (fos != null) {
 				try {
@@ -194,7 +194,7 @@ abstract public class AbstractPacketizer {
 					fos.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 		}
