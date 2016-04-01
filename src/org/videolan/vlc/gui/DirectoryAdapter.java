@@ -467,7 +467,7 @@ public class DirectoryAdapter extends BaseAdapter {
             path = new URI(LibVLC.PathToURI(path + "/.."))
                     .normalize().getPath();
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
         return Strings.stripTrailingSlash(path);
     }

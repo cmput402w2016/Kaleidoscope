@@ -114,7 +114,7 @@ public class AudioMediaCodecInputStream extends MediaCodecInputStream {
 			}
 
 		} catch (RuntimeException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 
 		return min;

@@ -135,9 +135,9 @@ public class AACLATMPacketizer extends AbstractPacketizer implements Runnable {
 		} catch (IOException e) {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			Log.e(TAG, "ArrayIndexOutOfBoundsException: " + (e.getMessage() != null ? e.getMessage() : "unknown error"));
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (InterruptedException ignore) {
-			ignore.printStackTrace();
+			// ignore.printStackTrace();
 		} finally {
 			socket.stop();
 		}

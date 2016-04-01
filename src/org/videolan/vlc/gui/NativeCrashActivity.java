@@ -79,7 +79,7 @@ public class NativeCrashActivity extends Activity {
             try {
                 log = Logcat.getLogcat();
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             return log;
         }
@@ -118,10 +118,10 @@ public class NativeCrashActivity extends Activity {
                 httpPost.setEntity(new ByteArrayEntity(compress(msgBuilder.toString())));
                 httpClient.execute(httpPost);
             } catch (ClientProtocolException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 return false;
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 return false;
             }
             return true;

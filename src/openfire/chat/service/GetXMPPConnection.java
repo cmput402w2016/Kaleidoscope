@@ -43,7 +43,7 @@ public class GetXMPPConnection {
 			}
 			return connection;
 		} catch (XMPPException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		return null;
 	}

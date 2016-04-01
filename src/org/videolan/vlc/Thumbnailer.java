@@ -74,7 +74,7 @@ public class Thumbnailer implements Runnable {
                 mLibVlc = VLCInstance.getLibVlcInstance();
             } catch (LibVlcException e) {
                 Log.e(TAG, "Can't obtain libvlc instance");
-                e.printStackTrace();
+                // e.printStackTrace();
                 return;
             }
         }

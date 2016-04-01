@@ -225,13 +225,13 @@ public class AudioServiceController implements IAudioPlayerControl {
             T returnVal = (T) m.invoke(instance, parameters);
             return returnVal;
         } catch(NoSuchMethodException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return defaultValue;
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return defaultValue;
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return defaultValue;
         } catch (InvocationTargetException e) {
             if(e.getTargetException() instanceof RemoteException) {

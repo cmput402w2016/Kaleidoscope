@@ -157,7 +157,7 @@ public class AudioService extends Service {
         try {
             mLibVLC = VLCInstance.getLibVlcInstance();
         } catch (LibVlcException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         mCallback = new HashMap<IAudioServiceCallback, Integer>();
@@ -631,7 +631,7 @@ public class AudioService extends Service {
             try {
                 callback.update();
             } catch (RemoteException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
         if (updateWidget)
@@ -643,7 +643,7 @@ public class AudioService extends Service {
             try {
                 callback.updateProgress();
             } catch (RemoteException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
     }
@@ -1437,14 +1437,14 @@ public class AudioService extends Service {
             // load playlist
             mInterface.load(mediaPathList, position, false);
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         finally {
             try {
                 if (br!= null) br.close();
                 if (input != null) input.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
 
@@ -1467,7 +1467,7 @@ public class AudioService extends Service {
             bw.close();
             output.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
@@ -1488,7 +1488,7 @@ public class AudioService extends Service {
             bw.close();
             output.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 

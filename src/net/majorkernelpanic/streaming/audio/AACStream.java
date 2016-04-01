@@ -33,6 +33,7 @@ import net.majorkernelpanic.streaming.rtp.AACLATMPacketizer;
 import net.majorkernelpanic.streaming.rtp.AudioMediaCodecInputStream;
 import net.majorkernelpanic.streaming.rtp.MediaCodecInputStream;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.AudioFormat;
@@ -56,6 +57,7 @@ import android.util.Log;
  * to configure the stream. You can then call {@link #start()} to start the RTP
  * stream. Call {@link #stop()} to stop the stream.
  */
+@TargetApi(Build.VERSION_CODES.FROYO)
 public class AACStream extends AudioStream {
 
 	public final static String TAG = "AACStream";
@@ -257,7 +259,7 @@ public class AACStream extends AudioStream {
 						}
 					}
 				} catch (RuntimeException e) {
-					e.printStackTrace();
+					// e.printStackTrace();
 				}
 			}
 		}, "AACEncoder");
@@ -308,6 +310,7 @@ public class AACStream extends AudioStream {
 	 * @throws IOException
 	 * @throws IllegalStateException
 	 */
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	@SuppressLint("InlinedApi")
 	private void testADTS() throws IllegalStateException, IOException {
 

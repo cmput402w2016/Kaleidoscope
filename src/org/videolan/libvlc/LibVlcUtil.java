@@ -333,9 +333,9 @@ public class LibVlcUtil {
             }
             return elf;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } finally {
             try {
                 if (in != null)

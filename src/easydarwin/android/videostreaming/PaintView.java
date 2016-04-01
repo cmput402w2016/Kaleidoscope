@@ -79,7 +79,7 @@ public class PaintView extends View implements OnTouchListener {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 
@@ -100,7 +100,7 @@ public class PaintView extends View implements OnTouchListener {
 				connection.connect();
 			} catch (XMPPException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 		// Add a packet listener to get messages sent to us

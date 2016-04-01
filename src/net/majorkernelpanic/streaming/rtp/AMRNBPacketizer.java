@@ -123,7 +123,7 @@ public class AMRNBPacketizer extends AbstractPacketizer implements Runnable {
 
 		} catch (IOException e) {
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} finally {
 			socket.stop();
 		}

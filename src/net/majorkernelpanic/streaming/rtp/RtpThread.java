@@ -113,7 +113,7 @@ public class RtpThread extends Thread {
 						inetAddress[0] = InetAddress.getByName(mHost);
 					} catch (UnknownHostException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 
@@ -167,14 +167,14 @@ public class RtpThread extends Thread {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} finally {
 			if (sc != null) {
 				try {
 					sc.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 			if (selector != null) {
@@ -182,7 +182,7 @@ public class RtpThread extends Thread {
 					selector.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 			if (!mStoped) { 
@@ -266,7 +266,7 @@ public class RtpThread extends Thread {
 			join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 

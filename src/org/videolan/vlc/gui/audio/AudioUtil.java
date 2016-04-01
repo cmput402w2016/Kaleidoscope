@@ -275,7 +275,7 @@ public class AudioUtil {
             cache.addBitmapToMemCache(cachePath, cover);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return cover;
     }

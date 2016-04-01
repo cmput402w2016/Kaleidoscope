@@ -553,13 +553,13 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 						if(mRoom.joinChatRoom(connection,invitedRoom, "1234"))
 							Log.i("invitedRoom",invitedRoom+"success with password");			
 					} catch (XMPPException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 					}
 				}
 				
 				return connection;
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 
 			return connection;
@@ -574,7 +574,7 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 				connection.connect();
 			} catch (XMPPException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		
@@ -1549,7 +1549,7 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 					mRoom.touchAnnotation(connection, invitedRoom, timestamp, coordinate);
 					
 				} catch (JSONException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 
 				break;
@@ -1594,7 +1594,7 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 					}
 			        
 				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				} finally {
 					if (c != null) {
 						paintViewHolder.unlockCanvasAndPost(c);
@@ -1677,7 +1677,7 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 								dataObject.put("coordinate", coordinate);
 								dataObject.put("annotation", tag);
 							} catch (JSONException e) {
-								e.printStackTrace();
+								//e.printStackTrace();
 							}
 									
 					        /** store these data
@@ -2113,7 +2113,7 @@ public class VideoPlayerActivity extends Activity implements IVideoPlayer {
 						"paintThread status::"+ paintThread.isAlive());
 				retry = false;
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 //		}
 	}

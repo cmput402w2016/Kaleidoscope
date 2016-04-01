@@ -63,7 +63,7 @@ public class CommonDialogs {
         try {
             adressMediaUri = new URI (addressMedia);
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
         }
         final File fileMedia = new File(adressMediaUri);
 

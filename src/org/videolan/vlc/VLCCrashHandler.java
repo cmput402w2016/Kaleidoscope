@@ -84,7 +84,7 @@ public class VLCCrashHandler implements UncaughtExceptionHandler {
         try {
             stream = new FileOutputStream(filename);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return;
         }
 
@@ -95,13 +95,13 @@ public class VLCCrashHandler implements UncaughtExceptionHandler {
             bw.write(log);
             bw.newLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }finally {
             try {
                 bw.close();
                 output.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
     }

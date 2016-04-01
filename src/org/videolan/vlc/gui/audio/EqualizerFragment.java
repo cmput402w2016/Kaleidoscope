@@ -116,7 +116,7 @@ public class EqualizerFragment extends Fragment {
             if (equalizer == null)
                 equalizer = new float[bands.length + 1];
         } catch (LibVlcException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             return;
         }
 

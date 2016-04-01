@@ -135,9 +135,9 @@ public class H264Packetizer extends AbstractPacketizer implements Runnable {
 
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} finally {
 			socket.stop();
 		}

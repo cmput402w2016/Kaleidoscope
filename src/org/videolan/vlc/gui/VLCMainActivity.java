@@ -179,7 +179,7 @@ public class VLCMainActivity extends ActionBarActivity {
             // Start LibVLC
             VLCInstance.getLibVlcInstance();
         } catch (LibVlcException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             Intent i = new Intent(this, CompatErrorActivity.class);
             i.putExtra("runtimeError", true);
             i.putExtra("message", "LibVLC failed to initialize (LibVlcException)");
@@ -803,7 +803,7 @@ public class VLCMainActivity extends ActionBarActivity {
 			try {
 				connection.connect();
 			} catch (XMPPException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
     	
@@ -813,7 +813,7 @@ public class VLCMainActivity extends ActionBarActivity {
     	try { // get chatting room list
     		roomList = mRoom.getChatRoomList(connection, serviceName);
 		} catch (XMPPException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
     	// pop up room list and rejoin one of them
     	popupStreamingList(mRoom,roomList);
@@ -910,7 +910,7 @@ public class VLCMainActivity extends ActionBarActivity {
 					Log.i("VLCMainActivity--p",p);
 					Log.i("VLCMainActivity--rejoin user",connection.getUser());
 				} catch (XMPPException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 				
 				// set new chat room

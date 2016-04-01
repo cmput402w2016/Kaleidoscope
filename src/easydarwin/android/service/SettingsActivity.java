@@ -134,7 +134,7 @@ public class SettingsActivity extends PreferenceActivity {
 			findPreference("key_about").setTitle("Version：" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
 		} catch (NameNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 
 	}
