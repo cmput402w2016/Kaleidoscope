@@ -318,7 +318,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 				// popup ContactList and select to send invitation
 				popupContactList(/* entries */);
 				String msg = "New stream available!";
-				mRoom.SendNotification(connection, room, msg);
+//				mRoom.SendNotification(connection, room, msg);
 
 			} else {
 				// make paintView disappear
@@ -340,9 +340,11 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			}
 			break;
 		case R.id.btnOptions:
-			Intent intent = new Intent();
-			intent.setClass(faActivity, SettingsActivity.class);
-			startActivityForResult(intent, REQUEST_SETTING);
+			DialogFragment dialog = new ReportIncidentDialogFragment();
+			dialog.show(getFragmentManager(), "dialog");
+//			Intent intent = new Intent();
+//			intent.setClass(faActivity, SettingsActivity.class);
+//			startActivityForResult(intent, REQUEST_SETTING);
 
 			break;
 		// case R.id.btnStop:
@@ -367,9 +369,12 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			break;
 		
 		case R.id.btn_report_incident:
+			Log.d("Dialog", "btn click");
 			// pop up dialogue asking for the type and severity of incident
-			DialogFragment reportIncidentDialog = new ReportIncidentDialogFragment();
-			reportIncidentDialog.show(getFragmentManager(), "incidents");
+			DialogFragment dialog1 = (DialogFragment) DialogFragment.instantiate(getActivity(), "hello workd");
+			dialog1.show(getFragmentManager(), "dialog");
+//			DialogFragment reportIncidentDialog = new ReportIncidentDialogFragment();
+//			reportIncidentDialog.show(getFragmentManager(), "incidents");
 			break;
 		}
 	}

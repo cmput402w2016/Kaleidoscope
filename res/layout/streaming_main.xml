@@ -18,7 +18,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_toRightOf="@id/title"
-            android:text="report" />
+            android:text="r" />
 
         <Button
             android:id="@+id/btnOptions"
