@@ -505,62 +505,12 @@ public class SlidingPaneLayout extends ViewGroup {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        final int action = MotionEventCompat.getActionMasked(ev);
-
-        if (!mCanSlide || (mIsUnableToDrag && action != MotionEvent.ACTION_DOWN)) {
-            mDragHelper.cancel();
-            return super.onInterceptTouchEvent(ev);
-        }
-
-        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-            mDragHelper.cancel();
-            return false;
-        }
-
-        switch (action) {
-        case MotionEvent.ACTION_DOWN: {
-            mIsUnableToDrag = false;
-            final float x = ev.getX();
-            final float y = ev.getY();
-            mInitialMotionX = x;
-            mInitialMotionY = y;
-            break;
-        }
-
-        case MotionEvent.ACTION_MOVE: {
-            final float x = ev.getX();
-            final float y = ev.getY();
-            final float adx = Math.abs(x - mInitialMotionX);
-            final float ady = Math.abs(y - mInitialMotionY);
-            final int slop = mDragHelper.getTouchSlop();
-            if (ady > slop && adx > ady) {
-                mDragHelper.cancel();
-                mIsUnableToDrag = true;
-                return false;
-            }
-        }
-        }
-
-        final boolean interceptForDrag = mDragHelper.shouldInterceptTouchEvent(ev)
-                // Intercept touch events only in the overhang area.
-                && ev.getY() <= mSlideOffset * mSlideRange + mOverhangSize;
-
-        return interceptForDrag;
+    	return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (!mCanSlide) {
-            return super.onTouchEvent(ev);
-        }
-
-        try {
-            mDragHelper.processTouchEvent(ev);
-        }
-        catch (IllegalArgumentException ex) { }
-        catch (ArrayIndexOutOfBoundsException ex) { }
-
-        return true;
+    	return false;
     }
 
     private boolean closePane(View pane, int initialVelocity) {
@@ -577,29 +527,11 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     private boolean openPaneEntirely(View pane, int initialVelocity) {
-        if (mFirstLayout) {
-            mState = STATE_OPENED_ENTIRELY;
-            if (mPanelSlideListener != null)
-                mPanelSlideListener.onPanelOpenedEntirely();
-            return true;
-        }
-        else if (smoothSlideTo(1.f, initialVelocity))
-            return true;
-        else
-            return false;
+    	return false;
     }
 
     private boolean openPane(View pane, int initialVelocity) {
-        if (mFirstLayout) {
-            mState = STATE_OPENED;
-            if (mPanelSlideListener != null)
-                mPanelSlideListener.onPanelOpened();
-            return true;
-        }
-        else if (smoothSlideTo(1 - (float)mOverhangSize / mSlideRange, initialVelocity))
-            return true;
-        else
-            return false;
+    	return false;
     }
 
     /**
@@ -648,7 +580,7 @@ public class SlidingPaneLayout extends ViewGroup {
      * @return true if content in this layout can be slid open and closed
      */
     public boolean isSlideable() {
-        return mCanSlide;
+        return false;
     }
 
     private void onPanelDragged(int newTop) {
