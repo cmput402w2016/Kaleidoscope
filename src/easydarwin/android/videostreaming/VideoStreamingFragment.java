@@ -139,6 +139,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 	public int videoEncoder = SessionBuilder.VIDEO_H264;
 	private static final int mOrientation = 0;
 	private Button btnOption;
+	private Button btnReportIncident;
 	private Button btnSelectContact;
 	private Button btnStop;
 	private Button btnSendMessage;
@@ -239,6 +240,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 
 		btnSelectContact.setOnClickListener(this);
 		btnOption.setOnClickListener(this);
+		btnReportIncident.setOnClickListener(this);
 		// btnStop.setOnClickListener(this);
 		btnSendMessage.setOnClickListener(this);
 		// EditText: set android keyboard enter button as send button
@@ -293,6 +295,7 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 		
 		btnSelectContact = (Button) v.findViewById(R.id.btnPlay);
 		btnOption = (Button) v.findViewById(R.id.btnOptions);
+		btnReportIncident = (Button) v.findViewById(R.id.btn_report_incident);
 		// btnStop = (Button) v.findViewById(R.id.btnStop);
 
 		// get username & password for [VideoPlayerActivity] reconnect to the
@@ -340,11 +343,9 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 			}
 			break;
 		case R.id.btnOptions:
-			DialogFragment dialog = new ReportIncidentDialogFragment();
-			dialog.show(getFragmentManager(), "dialog");
-//			Intent intent = new Intent();
-//			intent.setClass(faActivity, SettingsActivity.class);
-//			startActivityForResult(intent, REQUEST_SETTING);
+			Intent intent = new Intent();
+			intent.setClass(faActivity, SettingsActivity.class);
+			startActivityForResult(intent, REQUEST_SETTING);
 
 			break;
 		// case R.id.btnStop:
@@ -371,10 +372,8 @@ public class VideoStreamingFragment extends Fragment implements Callback,
 		case R.id.btn_report_incident:
 			Log.d("Dialog", "btn click");
 			// pop up dialogue asking for the type and severity of incident
-			DialogFragment dialog1 = (DialogFragment) DialogFragment.instantiate(getActivity(), "hello workd");
-			dialog1.show(getFragmentManager(), "dialog");
-//			DialogFragment reportIncidentDialog = new ReportIncidentDialogFragment();
-//			reportIncidentDialog.show(getFragmentManager(), "incidents");
+			DialogFragment dialog = new ReportIncidentDialogFragment();
+			dialog.show(getFragmentManager(), "dialog");
 			break;
 		}
 	}

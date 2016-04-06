@@ -15,10 +15,11 @@
         
         <Button
             android:id="@+id/btn_report_incident"
-            android:layout_width="40dp"
+            android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_toRightOf="@id/title"
-            android:text="r" />
+            android:layout_toRightOf="@id/icon"
+            android:layout_centerVertical="true"
+            android:text="Report Incident" />
 
         <Button
             android:id="@+id/btnOptions"
@@ -36,14 +37,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/icon" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btnOptions"
-            android:layout_centerHorizontal="true"
-            android:text="Kaleidoscope"
-            android:textSize="32sp" />
+
     </RelativeLayout>
     <!--  -->
 
